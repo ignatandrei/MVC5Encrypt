@@ -19,7 +19,11 @@ into
 
 
 Demo at http://mvc5encrypt.apphb.com/ 
+
+
 NuGet at https://www.nuget.org/packages/MVC5Encrypt/
+
+
 Sources on GitHub : https://github.com/ignatandrei/MVC5Encrypt
 
 More details at Wiki https://github.com/ignatandrei/MVC5Encrypt/wiki
