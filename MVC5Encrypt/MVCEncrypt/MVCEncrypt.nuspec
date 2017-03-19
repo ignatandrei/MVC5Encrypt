@@ -16,5 +16,10 @@
     <releaseNotes>First version</releaseNotes>
     <copyright>Copyright 2017</copyright>
     <tags>MVC5 Encrypt</tags>
+	
   </metadata>
+  <files>
+		 <file src="bin\Release\MVCEncrypt.dll" target="lib\net\MVCEncrypt.dll" />
+		 <file src="bin\Release\MVCEncrypt.xml" target="lib\net\MVCEncrypt.xml" />
+	</files>
 </package>
