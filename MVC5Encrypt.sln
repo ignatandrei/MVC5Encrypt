@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26228.4
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCEncrypt", "MVCEncrypt\MVCEncrypt.csproj", "{4BF46BAA-83DD-433A-8E1E-CDD26949015F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCEncrypt", "MVC5Encrypt\MVCEncrypt\MVCEncrypt.csproj", "{4BF46BAA-83DD-433A-8E1E-CDD26949015F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCEncryptDemo", "MVCEncryptDemo\MVCEncryptDemo.csproj", "{B0466FE3-7187-4321-BE10-4AF188EE6150}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCEncryptDemo", "MVC5Encrypt\MVCEncryptDemo\MVCEncryptDemo.csproj", "{B0466FE3-7187-4321-BE10-4AF188EE6150}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
