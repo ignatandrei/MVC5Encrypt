@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace MVCEncrypt
 {
+    /// <summary>
+    /// default implementation class for having encrypt decrypt
+    /// </summary>
     public class EncryptDecrypt : IEncryptDecrypt
     {
         private static readonly byte[] salt;
@@ -22,6 +25,10 @@ namespace MVCEncrypt
             salt = Encoding.ASCII.GetBytes(val);
         }
         string sharedSecret;
+        /// <summary>
+        /// encrypt constructor
+        /// </summary>
+        /// <param name="sharedSecret"></param>
         public EncryptDecrypt(string sharedSecret)
         {
             if (string.IsNullOrEmpty(sharedSecret))

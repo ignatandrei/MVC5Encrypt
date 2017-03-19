@@ -8,13 +8,33 @@ using System.Web.Mvc;
 
 namespace MVCEncrypt
 {
+    /// <summary>
+    /// extension for having syntax like
+    /// <a href='@Url.ActionEnc("mySecret", "TestEncrypt", new { a = 1, b = "asd" })'>Test</a>
+    /// </summary>
     public static class UrLExtensions
     {
+        /// <summary>
+        /// default implementation 
+        /// </summary>
+        /// <param name="helper"></param>
+        /// <param name="secret"></param>
+        /// <param name="actionName"></param>
+        /// <param name="routeValues"></param>
+        /// <returns></returns>
         public static string ActionEnc(this UrlHelper helper, string secret, string actionName, object routeValues)
         {
             var encDec = new EncryptDecrypt(secret);
             return ActionEnc(helper, encDec, actionName, routeValues);
         }
+        /// <summary>
+        /// generic implementation 
+        /// </summary>
+        /// <param name="helper"></param>
+        /// <param name="encDec"></param>
+        /// <param name="actionName"></param>
+        /// <param name="routeValues"></param>
+        /// <returns></returns>
         public static string ActionEnc(this UrlHelper helper, IEncryptDecrypt encDec, string actionName, object routeValues)
         {
 
