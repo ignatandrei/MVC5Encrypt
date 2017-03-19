@@ -20,8 +20,7 @@ namespace MVCEncryptDemo.Controllers
         }
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
+            ViewBag.Message = "An application made by Andrei Ignat";
             return View();
         }
 

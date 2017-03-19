@@ -42,7 +42,9 @@ namespace MVCEncrypt
 
             if (string.IsNullOrEmpty(value))
                 throw new ArgumentNullException("value");
-
+            //if it is not base64, return same value - it is not encrypted
+            if (!value.IsBase64String())
+                return value;
             // Declare the RijndaelManaged object
             // used to decrypt the data.
             RijndaelManaged aesAlg = null;

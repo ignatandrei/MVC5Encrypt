@@ -1,33 +1,53 @@
-﻿@{
+﻿@using MVCEncrypt;
+@{
     ViewBag.Title = "Home Page";
 }
 
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    @Url.Action("TestEncrypt", new { a = 1, b = "asd" })
-    <a href='@MVCEncrypt.UrLExtensions.ActionEnc(this.Url, "mySecret", "TestEncrypt", new { a = 1, b = "asd" })'>Test</a>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <h1>MVC Encrypt </h1>
+
+    <p class="lead">MVC Encrypt is a NuGet package to encrypt/decrypt query string parameters</p>
+
 </div>
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Getting started</h2>
+        <h2>Example</h2>
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            In the View , the original link looks like this:
+        </p><p>
+            &lt;a href='@@Url.Action("TestEncrypt", new { a = 1, b = "asd" })'&gt;Test&lt;/a&gt;
+            <br />live link:    <a href='@Url.Action("TestEncrypt", new { a = 1, b = "asd" })'>Test</a>
+        </p><p>
+            To encrypt, please modify to this:
+        </p><p>
+            &lt;a href='@@Url.ActionEnc("mySecret", "TestEncrypt", new { a = 1, b = "asd" })'&gt;Test&lt;/a&gt;
+            <br />    Do not forget @@using MVCEncrypt;
+        </p><p>
+            livelink:
+            <a href='@Url.ActionEnc("mySecret", "TestEncrypt", new { a = 1, b = "asd" })'>Test</a>
+
+            <br />
+            In the action, please add attribute MVCDecryptFilter
+        </p><p>
+            <pre>
+            [MVCDecryptFilter(secret = "mySecret")]
+            public ActionResult TestEncrypt(int a, string b)
+            {
+                return Content(" a is " + a + " and b is " + b);
+            }
+            </pre>
         </p>
         <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
     </div>
     <div class="col-md-4">
-        <h2>Get more libraries</h2>
+        <h2>Getting started with MVC encrypt</h2>
         <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
         <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
     </div>
     <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+        <h2>Demo at appHarbor</h2>
+
         <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
     </div>
 </div>

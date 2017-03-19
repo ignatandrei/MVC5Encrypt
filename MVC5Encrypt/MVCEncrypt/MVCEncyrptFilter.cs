@@ -8,30 +8,6 @@ using System.Web.Mvc;
 
 namespace MVCEncrypt
 {
-    public class MVCDecryptActionFilter : IActionFilter
-    {
-        IEncryptDecrypt encDec;
-        public MVCDecryptActionFilter(IEncryptDecrypt value)
-        {
-            encDec = value;
-        }
-        public void OnActionExecuted(ActionExecutedContext filterContext)
-        {
-            return;
-        }
-
-        public void OnActionExecuting(ActionExecutingContext filterContext)
-        {
-            var args = HttpUtility.ParseQueryString(filterContext.HttpContext.Request.Url.Query);
-            for (int i = 0; i < args.Count; i++)
-            {
-                var data = args[i];
-                filterContext.ActionParameters[args.GetKey(i)] = encDec.DecryptString(data);
-            }
-
-
-        }
-    }
     public class MVCDecryptFilterAttribute : ActionFilterAttribute
     {
         public string secret;
@@ -42,7 +18,7 @@ namespace MVCEncrypt
             var parametersAction = filterContext.ActionDescriptor.GetParameters();
             for (int i = 0; i < args.Count; i++)
             {
-                var value = args[i];
+                var value = args[i];               
                 var name = args.GetKey(i);
                 var type = parametersAction.First(it => it.ParameterName == name).ParameterType;
                 filterContext.ActionParameters[name] = Convert.ChangeType(encDec.DecryptString(value), type);

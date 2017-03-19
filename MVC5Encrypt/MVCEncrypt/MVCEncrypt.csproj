@@ -63,8 +63,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base64Utils.cs" />
     <Compile Include="EncryptDecrypt.cs" />
     <Compile Include="IEncryptDecrypt.cs" />
+    <Compile Include="MVCDecryptActionFilter.cs" />
     <Compile Include="MVCEncyrptFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UrLExtensions.cs" />
