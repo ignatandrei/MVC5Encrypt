@@ -13,7 +13,7 @@ into
 
 <p>&lt;a href='@Url.ActionEnc(&quot;mySecret&quot;, &quot;TestEncrypt&quot;, new { a = 1, b = &quot;asd&quot; })'&gt;Test&lt;/a&gt;</p>
 
-3. Add to the action the MVC5EncryptFilterAttribute
+3. Add to the action the MVCDecryptFilterAttribute
 
 [MVCDecryptFilter(secret = &quot;mySecret&quot;)] 
 
