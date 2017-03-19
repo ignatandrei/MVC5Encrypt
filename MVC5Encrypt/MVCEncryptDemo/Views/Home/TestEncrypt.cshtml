@@ -4,8 +4,32 @@
 }
 
 <h2>TestEncrypt</h2>
-Parameters:
+Parameters from action:
 <p>a = @ViewBag.a</p>
 <p>b = @ViewBag.b</p>
 
+Parameters from query string
+<p></p>
+<div id="a"></div>
+<p></p>
+<div id="b"></div>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            
+            $("#a").html("a=" + getParameterByName("a"));
+            $("#b").html("b=" + getParameterByName("b"));
+        });
+        function getParameterByName(name) {
 
+            var url = window.location.href;
+
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+    </script>
+    }
