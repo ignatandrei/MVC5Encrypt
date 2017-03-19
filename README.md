@@ -28,4 +28,6 @@ Sources on GitHub : https://github.com/ignatandrei/MVC5Encrypt
 
 More details at Wiki https://github.com/ignatandrei/MVC5Encrypt/wiki
 
+Video at https://youtu.be/FA-sTM6cf5w
+
 Contact at my blog http://msprogrammer.serviciipeweb.ro/2017/03/20/mvc-5-encrypt-parameters/
