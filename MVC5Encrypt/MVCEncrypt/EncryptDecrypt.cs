@@ -17,7 +17,7 @@ namespace MVCEncrypt
         private static readonly byte[] salt;
         static EncryptDecrypt()
         {
-            var val = ConfigurationManager.AppSettings["salt"];
+            var val = ConfigurationManager.AppSettings["MVCEncryptSalt"];
             if (string.IsNullOrWhiteSpace(val))
             {
                 val = "http://msprogrammer.serviciipeweb.ro/";
