@@ -14,8 +14,9 @@ namespace MVCEncryptDemo.Controllers
             return View();
         }
         [MVCDecryptFilter(secret = "mySecret")]
-        public ActionResult TestEncrypt(int a, string b)
+        public ActionResult TestEncrypt(int id, int a, string b)
         {
+            ViewBag.id = id;
             ViewBag.a = a;
             ViewBag.b = b;
             return View();

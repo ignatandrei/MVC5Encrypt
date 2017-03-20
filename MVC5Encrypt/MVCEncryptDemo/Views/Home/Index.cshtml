@@ -16,16 +16,16 @@
         <p>
             In the View , the original link looks like this:
         </p><p>
-            &lt;a href='@@Url.Action("TestEncrypt", new { a = 1, b = "asd" })'&gt;Test&lt;/a&gt;
-            <br />live link:    <a href='@Url.Action("TestEncrypt", new { a = 1, b = "asd" })'>Test</a>
+            &lt;a href='@@Url.Action("TestEncrypt", new {id=7, a = 1, b = "asd" })'&gt;Test&lt;/a&gt;
+            <br />live link:    <a href='@Url.Action("TestEncrypt", new { id=7, a = 1, b = "asd" })'>Test</a>
         </p><p>
             To encrypt, please modify to this:
         </p><p>
-            &lt;a href='@@Url.ActionEnc("mySecret", "TestEncrypt", new { a = 1, b = "asd" })'&gt;Test&lt;/a&gt;
+            &lt;a href='@@Url.ActionEnc("mySecret", "TestEncrypt", new {id=7, a = 1, b = "asd" })'&gt;Test&lt;/a&gt;
             <br />    Do not forget @@using MVCEncrypt;
         </p><p>
             livelink:
-            <a href='@Url.ActionEnc("mySecret", "TestEncrypt", new { a = 1, b = "asd" })'>Test</a>
+            <a href='@Url.ActionEnc("mySecret", "TestEncrypt", new {id=7, a = 1, b = "asd" })'>Test</a>
 
             <br />
             In the action, please add attribute MVCDecryptFilter
