@@ -7,11 +7,11 @@ Encrypt / decrypt query string parameters with MVC 5
 
 2. Modify
 
-<p>&lt;a href='@Url.Action(&quot;TestEncrypt&quot;, new { a = 1, b = &quot;asd&quot; })'&gt;Test&lt;/a&gt;</p>
+<p>&lt;a href='@Url.Action(&quot;TestEncrypt&quot;, new {id=7, a = 1, b = &quot;asd&quot; })'&gt;Test&lt;/a&gt;</p>
 
 into 
 
-<p>&lt;a href='@Url.ActionEnc(&quot;mySecret&quot;, &quot;TestEncrypt&quot;, new { a = 1, b = &quot;asd&quot; })'&gt;Test&lt;/a&gt;</p>
+<p>&lt;a href='@Url.ActionEnc(&quot;mySecret&quot;, &quot;TestEncrypt&quot;, new {id=7, a = 1, b = &quot;asd&quot; })'&gt;Test&lt;/a&gt;</p>
 
 3. Add to the action the MVCDecryptFilterAttribute
 
