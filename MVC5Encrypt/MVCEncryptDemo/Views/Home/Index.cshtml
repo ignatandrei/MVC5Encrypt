@@ -12,7 +12,7 @@
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Example</h2>
+        <h2>Encrypt example</h2>
         <p>
             In the View , the original link looks like this:
         </p><p>
@@ -32,22 +32,64 @@
         </p><p>
             <pre>
             [MVCDecryptFilter(secret = "mySecret")]
-            public ActionResult TestEncrypt(int a, string b)
+            public ActionResult TestEncrypt(int id,int a, string b)
             {
-                return Content(" a is " + a + " and b is " + b);
+                  ViewBag.id = id;
+                  ViewBag.a = a;
+                  ViewBag.b = b;
+                  return View();               
             }
             </pre>
         </p>
         <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
     </div>
-    <div class="col-md-4">
-        <h2>Live Demo at appHarbor</h2>
-        <p>Please see  http://mvc5encrypt.apphb.com/</p>
-        <p><a class="btn btn-default" href="http://mvc5encrypt.apphb.com/">See in action &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>More details </h2>
 
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    <div class="col-md-4">
+        <h2>SEO example</h2>
+       
+        <p>
+            In the View , the original link looks like this:
+        </p><p>
+            &lt;a href='@@Url.Action("TestEncrypt", new {id=7, a = 1, b = "asd" })'&gt;Test&lt;/a&gt;
+            <br />live link:    <a href='@Url.Action("TestEncryptSEO", new { id=7, a = 1, b = "asd" })'>Test</a>
+        </p><p>
+            To encrypt, please modify to this:
+        </p><p>
+            &lt;a href='@@Url.ActionEnc(new EncDecSEOBullShit(), "TestEncryptSEO", new {id=7, a = 1, b = "asd" })'&gt;Test&lt;/a&gt;
+            <br />    Do not forget @@using MVCEncrypt;
+        </p><p>
+            livelink:
+            <a href='@Url.ActionEnc(new EncDecSEOBullShit(), "TestEncryptSEO", new {id=7, a = 1, b = "asd" })'>Test</a>
+
+            <br />
+            In the action, please add attribute MVCDecryptFilter
+        </p><p>
+            <pre>
+            [MVCDecryptFilter(EncDecFullClassName = "MVCEncryptDemo.EncDecSEOBullShit, MVCEncryptDemo")]
+            public ActionResult TestEncryptSEO(int id,int a, string b)
+            {
+                ViewBag.id = id;
+                ViewBag.a = a;
+                ViewBag.b = b;
+                return View();
+            }
+            </pre>
+        </p>
+        
+        
     </div>
+    <div class="col-md-4">
+        <h2>More details</p>
+
+        <p><a class="btn btn-default" href="http://mvc5encrypt.apphb.com/">See in action &raquo;</a></p>
+        Made by Andrei Ignat, <a href="http://msprogrammer.serviciipeweb.ro/" target="_blank">http://msprogrammer.serviciipeweb.ro</a>
+        <br />
+        Source code at <a href="https://github.com/ignatandrei/MVC5Encrypt" target="_blank">https://github.com/ignatandrei/MVC5Encrypt</a>
+        <br />
+        View online at <a href="http://mvc5encrypt.apphb.com/" target="_blank">http://mvc5encrypt.apphb.com/</a>
+        <br />
+        Video at <a href="https://youtu.be/FA-sTM6cf5w" target="_blank">https://youtu.be/FA-sTM6cf5w</a>
+
+    </div>
+   
 </div>

@@ -21,6 +21,14 @@ namespace MVCEncryptDemo.Controllers
             ViewBag.b = b;
             return View();
         }
+        [MVCDecryptFilter(EncDecFullClassName = "MVCEncryptDemo.EncDecSEOBullShit, MVCEncryptDemo")]
+        public ActionResult TestEncryptSEO(int id, int a, string b)
+        {
+            ViewBag.id = id;
+            ViewBag.a = a;
+            ViewBag.b = b;
+            return View("TestEncrypt");
+        }
         public ActionResult About()
         {
             ViewBag.Message = "An application made by Andrei Ignat";

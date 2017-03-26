@@ -15,6 +15,11 @@ namespace MVCEncrypt
     public class MVCDecryptFilterAttribute : ActionFilterAttribute
     {
         /// <summary>
+        /// the encrypt decrypt full class name
+        /// must inherit from <see cref="IEncryptDecrypt"/>
+        /// </summary>
+        public string EncDecFullClassName;
+        /// <summary>
         /// the secret . Should be the same as in
         /// &lt;a href='@Url.Action("TestEncrypt", new { a = 1, b = "asd" })'&gt;Test&lt;/a&gt;
         /// </summary>
@@ -25,7 +30,21 @@ namespace MVCEncrypt
         /// <param name="filterContext"></param>
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            var encDec=new EncryptDecrypt(secret);
+            IEncryptDecrypt encDec;
+            if (string.IsNullOrWhiteSpace(EncDecFullClassName))
+            {
+                encDec = new EncryptDecrypt(secret);
+            }
+            else
+            {
+                var t = Type.GetType(EncDecFullClassName);
+                encDec = Activator.CreateInstance(t) as IEncryptDecrypt;
+                if (encDec == null)
+                {
+                    throw new ArgumentException(" Cannot convert " + EncDecFullClassName + " to IEncryptDecrypt");
+                }
+            }
+            
             var args = HttpUtility.ParseQueryString(filterContext.HttpContext.Request.Url.Query);
             var parametersAction = filterContext.ActionDescriptor.GetParameters();
             for (int i = 0; i < args.Count; i++)
